@@ -1,5 +1,5 @@
 //
-//  UIScalableProgressView.swift
+//  UIRoundCornerView.swift
 //  MyExpense
 //
 //  Created by OP-Macmini3 on 8/7/18.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class UIScalableProgressView: UIProgressView {
+class UIRoundedView: UIView {
+    
+    @IBInspectable var cornerRadius: CGFloat = 2
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -21,7 +23,8 @@ class UIScalableProgressView: UIProgressView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.transform.scaledBy(x: 1, y: 12)
+        self.layer.cornerRadius = cornerRadius
+        self.layer.masksToBounds = true
         
     }
 

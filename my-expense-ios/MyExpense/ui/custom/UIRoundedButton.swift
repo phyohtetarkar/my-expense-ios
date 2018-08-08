@@ -1,15 +1,16 @@
 //
-//  UIRoundCornerView.swift
+//  UIRoundedButton.swift
 //  MyExpense
 //
-//  Created by OP-Macmini3 on 8/7/18.
+//  Created by OP-Macmini3 on 8/8/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable
-class UICircleView: UIView {
+class UIRoundedButton: UIButton {
+    
+    @IBInspectable var cornerRadius: CGFloat = 2
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -22,7 +23,7 @@ class UICircleView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layer.cornerRadius = bounds.width / 2
+        self.layer.cornerRadius = cornerRadius
         self.layer.masksToBounds = true
         
     }
