@@ -2,7 +2,7 @@
 //  UIRoundedButton.swift
 //  MyExpense
 //
-//  Created by OP-Macmini3 on 8/8/18.
+//  Created by Phyo Htet Arkar on 8/8/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
