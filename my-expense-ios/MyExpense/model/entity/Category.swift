@@ -9,13 +9,20 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class Category: Object, PCategory {
     
-    @objc dynamic var id = 0
-    @objc dynamic var name = ""
+    dynamic var id = 0
+    dynamic var name = ""
+    
+    dynamic var amount = 0.0
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["amount"]
     }
     
 }

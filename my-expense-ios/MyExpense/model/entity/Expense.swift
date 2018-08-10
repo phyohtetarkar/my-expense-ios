@@ -9,14 +9,15 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class Expense: Object, PExpense {
 
-    @objc dynamic var id = 0
-    @objc dynamic var amount = 0.0
-    @objc dynamic var year = 2018
-    @objc dynamic var month = 1
-    @objc dynamic var day = 1
-    @objc dynamic var note = ""
+    dynamic var id = 0
+    dynamic var amount = 0.0
+    dynamic var year = 2018
+    dynamic var month = 1
+    dynamic var day = 1
+    dynamic var note = ""
     
     @objc dynamic var _category: Category?
     

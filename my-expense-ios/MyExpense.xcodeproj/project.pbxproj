@@ -17,6 +17,7 @@
 		AA1E8F1E211D3ABB004CA681 /* ExpenseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */; };
 		AA1E8F69211D5486004CA681 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; };
 		AA1E8F6A211D5486004CA681 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */; };
 		AA455E08211A7FA100E0858D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E06211A7FA100E0858D /* RealmSwift.framework */; };
 		AA455E09211A7FA100E0858D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E07211A7FA100E0858D /* Realm.framework */; };
 		AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */; };
@@ -94,6 +95,7 @@
 		AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceImpl.swift; sourceTree = "<group>"; };
 		AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceImpl.swift; sourceTree = "<group>"; };
 		AA1E8F60211D5474004CA681 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Carthage/Checkouts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		AA455E06211A7FA100E0858D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		AA455E07211A7FA100E0858D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AA1E8F70211D8A65004CA681 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		AA455E05211A7FA100E0858D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 		AA6669522119384400C9D491 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				AA1E8F70211D8A65004CA681 /* category */,
 				AA666953211938BB00C9D491 /* custom */,
 			);
 			path = ui;
@@ -449,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */,
 				AA1E8F13211D3092004CA681 /* PCategory.swift in Sources */,
 				AA1E8F10211D2DAC004CA681 /* Expense.swift in Sources */,
 				AA666958211955B200C9D491 /* UIScalableProgressView.swift in Sources */,

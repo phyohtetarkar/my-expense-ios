@@ -390,7 +390,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-4D-n19">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -410,7 +410,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOz-fJ-rin">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -430,7 +430,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-y5-Xsi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -450,7 +450,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gau-PD-k6P">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -470,7 +470,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxP-Vh-JaN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -490,7 +490,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbm-cr-Uhc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -510,7 +510,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-MM-uq1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -530,7 +530,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-ol-kA1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.40000000000000002" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -550,7 +550,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2e-M2-v60">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>
@@ -570,7 +570,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-ut-XyT">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                         <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </view>
                                                                 </subviews>

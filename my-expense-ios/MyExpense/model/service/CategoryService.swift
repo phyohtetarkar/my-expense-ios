@@ -14,6 +14,8 @@ protocol CategoryService {
     
     func findAll() -> [E]
     
+    func findAllWithAmount() -> [E]
+    
     func getCategory(id: Int) -> E?
     
     func save(category: E)
