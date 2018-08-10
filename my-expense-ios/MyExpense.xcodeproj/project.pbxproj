@@ -15,7 +15,8 @@
 		AA1E8F19211D34D4004CA681 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F18211D34D4004CA681 /* ExpenseService.swift */; };
 		AA1E8F1C211D356B004CA681 /* CategoryServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */; };
 		AA1E8F1E211D3ABB004CA681 /* ExpenseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */; };
-		AA1E8F20211D3BE1004CA681 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F1F211D3BE1004CA681 /* Charts.framework */; };
+		AA1E8F69211D5486004CA681 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; };
+		AA1E8F6A211D5486004CA681 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA455E08211A7FA100E0858D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E06211A7FA100E0858D /* RealmSwift.framework */; };
 		AA455E09211A7FA100E0858D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E07211A7FA100E0858D /* Realm.framework */; };
 		AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */; };
@@ -32,6 +33,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AA1E8F65211D5475004CA681 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1E8F60211D5474004CA681 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		AA1E8F67211D5475004CA681 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1E8F60211D5474004CA681 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+		AA1E8F6B211D5486004CA681 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1E8F60211D5474004CA681 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
+		};
 		AA666936211930B300C9D491 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA666919211930B100C9D491 /* Project object */;
@@ -48,6 +70,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AA1E8F6D211D5486004CA681 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AA1E8F6A211D5486004CA681 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AA1E8F0D211D2C01004CA681 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		AA1E8F0F211D2DAC004CA681 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
@@ -57,7 +93,7 @@
 		AA1E8F18211D34D4004CA681 /* ExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseService.swift; sourceTree = "<group>"; };
 		AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceImpl.swift; sourceTree = "<group>"; };
 		AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceImpl.swift; sourceTree = "<group>"; };
-		AA1E8F1F211D3BE1004CA681 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		AA1E8F60211D5474004CA681 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Carthage/Checkouts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		AA455E06211A7FA100E0858D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		AA455E07211A7FA100E0858D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
@@ -84,9 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1E8F69211D5486004CA681 /* Charts.framework in Frameworks */,
 				AA455E08211A7FA100E0858D /* RealmSwift.framework in Frameworks */,
 				AA455E09211A7FA100E0858D /* Realm.framework in Frameworks */,
-				AA1E8F20211D3BE1004CA681 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,10 +173,18 @@
 			path = impl;
 			sourceTree = "<group>";
 		};
+		AA1E8F61211D5474004CA681 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA1E8F66211D5475004CA681 /* Charts.framework */,
+				AA1E8F68211D5475004CA681 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AA455E05211A7FA100E0858D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA1E8F1F211D3BE1004CA681 /* Charts.framework */,
 				AA455E07211A7FA100E0858D /* Realm.framework */,
 				AA455E06211A7FA100E0858D /* RealmSwift.framework */,
 			);
@@ -150,6 +194,7 @@
 		AA666918211930B100C9D491 = {
 			isa = PBXGroup;
 			children = (
+				AA1E8F60211D5474004CA681 /* Charts.xcodeproj */,
 				AA666923211930B100C9D491 /* MyExpense */,
 				AA666938211930B300C9D491 /* MyExpenseTests */,
 				AA666943211930B300C9D491 /* MyExpenseUITests */,
@@ -240,10 +285,12 @@
 				AA66691E211930B100C9D491 /* Frameworks */,
 				AA66691F211930B100C9D491 /* Resources */,
 				AA455E0A211A7FC100E0858D /* ShellScript */,
+				AA1E8F6D211D5486004CA681 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA1E8F6C211D5486004CA681 /* PBXTargetDependency */,
 			);
 			name = MyExpense;
 			productName = MyExpense;
@@ -320,6 +367,12 @@
 			mainGroup = AA666918211930B100C9D491;
 			productRefGroup = AA666922211930B100C9D491 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AA1E8F61211D5474004CA681 /* Products */;
+					ProjectRef = AA1E8F60211D5474004CA681 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AA666920211930B100C9D491 /* MyExpense */,
@@ -328,6 +381,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AA1E8F66211D5475004CA681 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = AA1E8F65211D5475004CA681 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA1E8F68211D5475004CA681 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = AA1E8F67211D5475004CA681 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AA66691F211930B100C9D491 /* Resources */ = {
@@ -365,7 +435,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 			);
@@ -416,6 +485,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AA1E8F6C211D5486004CA681 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = AA1E8F6B211D5486004CA681 /* PBXContainerItemProxy */;
+		};
 		AA666937211930B300C9D491 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA666920211930B100C9D491 /* MyExpense */;
@@ -565,6 +639,7 @@
 		AA66694A211930B300C9D491 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -586,6 +661,7 @@
 		AA66694B211930B300C9D491 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
