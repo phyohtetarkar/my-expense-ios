@@ -7,19 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA1E8F0E211D2C01004CA681 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F0D211D2C01004CA681 /* Category.swift */; };
-		AA1E8F10211D2DAC004CA681 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F0F211D2DAC004CA681 /* Expense.swift */; };
-		AA1E8F13211D3092004CA681 /* PCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F12211D3092004CA681 /* PCategory.swift */; };
-		AA1E8F15211D30E2004CA681 /* PExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F14211D30E2004CA681 /* PExpense.swift */; };
-		AA1E8F17211D330A004CA681 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F16211D330A004CA681 /* CategoryService.swift */; };
-		AA1E8F19211D34D4004CA681 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F18211D34D4004CA681 /* ExpenseService.swift */; };
-		AA1E8F1C211D356B004CA681 /* CategoryServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */; };
-		AA1E8F1E211D3ABB004CA681 /* ExpenseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */; };
-		AA1E8F69211D5486004CA681 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; };
+		5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C341EC1211EA91700A48609 /* MyExpense.xcdatamodeld */; };
 		AA1E8F6A211D5486004CA681 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */; };
-		AA455E08211A7FA100E0858D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E06211A7FA100E0858D /* RealmSwift.framework */; };
-		AA455E09211A7FA100E0858D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA455E07211A7FA100E0858D /* Realm.framework */; };
 		AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */; };
 		AA666925211930B100C9D491 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA666924211930B100C9D491 /* AppDelegate.swift */; };
 		AA666927211930B100C9D491 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA666926211930B100C9D491 /* ViewController.swift */; };
@@ -86,18 +76,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA1E8F0D211D2C01004CA681 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		AA1E8F0F211D2DAC004CA681 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		AA1E8F12211D3092004CA681 /* PCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCategory.swift; sourceTree = "<group>"; };
-		AA1E8F14211D30E2004CA681 /* PExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PExpense.swift; sourceTree = "<group>"; };
-		AA1E8F16211D330A004CA681 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
-		AA1E8F18211D34D4004CA681 /* ExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseService.swift; sourceTree = "<group>"; };
-		AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceImpl.swift; sourceTree = "<group>"; };
-		AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceImpl.swift; sourceTree = "<group>"; };
+		5C341EC2211EA91700A48609 /* MyExpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyExpense.xcdatamodel; sourceTree = "<group>"; };
 		AA1E8F60211D5474004CA681 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Carthage/Checkouts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
-		AA455E06211A7FA100E0858D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		AA455E07211A7FA100E0858D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
 		AA666921211930B100C9D491 /* MyExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA666924211930B100C9D491 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,9 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA1E8F69211D5486004CA681 /* Charts.framework in Frameworks */,
-				AA455E08211A7FA100E0858D /* RealmSwift.framework in Frameworks */,
-				AA455E09211A7FA100E0858D /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,36 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA1E8F0C211D2BBC004CA681 /* entity */ = {
-			isa = PBXGroup;
-			children = (
-				AA1E8F0D211D2C01004CA681 /* Category.swift */,
-				AA1E8F0F211D2DAC004CA681 /* Expense.swift */,
-				AA1E8F12211D3092004CA681 /* PCategory.swift */,
-				AA1E8F14211D30E2004CA681 /* PExpense.swift */,
-			);
-			path = entity;
-			sourceTree = "<group>";
-		};
-		AA1E8F11211D3009004CA681 /* service */ = {
-			isa = PBXGroup;
-			children = (
-				AA1E8F1A211D3557004CA681 /* impl */,
-				AA1E8F16211D330A004CA681 /* CategoryService.swift */,
-				AA1E8F18211D34D4004CA681 /* ExpenseService.swift */,
-			);
-			path = service;
-			sourceTree = "<group>";
-		};
-		AA1E8F1A211D3557004CA681 /* impl */ = {
-			isa = PBXGroup;
-			children = (
-				AA1E8F1B211D356B004CA681 /* CategoryServiceImpl.swift */,
-				AA1E8F1D211D3ABB004CA681 /* ExpenseServiceImpl.swift */,
-			);
-			path = impl;
-			sourceTree = "<group>";
-		};
 		AA1E8F61211D5474004CA681 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,8 +143,6 @@
 		AA455E05211A7FA100E0858D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA455E07211A7FA100E0858D /* Realm.framework */,
-				AA455E06211A7FA100E0858D /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +150,7 @@
 		AA666918211930B100C9D491 = {
 			isa = PBXGroup;
 			children = (
+				5C341EC1211EA91700A48609 /* MyExpense.xcdatamodeld */,
 				AA1E8F60211D5474004CA681 /* Charts.xcodeproj */,
 				AA666923211930B100C9D491 /* MyExpense */,
 				AA666938211930B300C9D491 /* MyExpenseTests */,
@@ -226,7 +173,6 @@
 		AA666923211930B100C9D491 /* MyExpense */ = {
 			isa = PBXGroup;
 			children = (
-				AA66695621193CB300C9D491 /* model */,
 				AA6669522119384400C9D491 /* ui */,
 				AA666924211930B100C9D491 /* AppDelegate.swift */,
 				AA666926211930B100C9D491 /* ViewController.swift */,
@@ -276,15 +222,6 @@
 			path = custom;
 			sourceTree = "<group>";
 		};
-		AA66695621193CB300C9D491 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				AA1E8F11211D3009004CA681 /* service */,
-				AA1E8F0C211D2BBC004CA681 /* entity */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,7 +232,6 @@
 				AA66691D211930B100C9D491 /* Sources */,
 				AA66691E211930B100C9D491 /* Frameworks */,
 				AA66691F211930B100C9D491 /* Resources */,
-				AA455E0A211A7FC100E0858D /* ShellScript */,
 				AA1E8F6D211D5486004CA681 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -437,44 +373,19 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		AA455E0A211A7FC100E0858D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		AA66691D211930B100C9D491 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */,
-				AA1E8F13211D3092004CA681 /* PCategory.swift in Sources */,
-				AA1E8F10211D2DAC004CA681 /* Expense.swift in Sources */,
 				AA666958211955B200C9D491 /* UIScalableProgressView.swift in Sources */,
-				AA1E8F17211D330A004CA681 /* CategoryService.swift in Sources */,
-				AA1E8F15211D30E2004CA681 /* PExpense.swift in Sources */,
 				AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */,
 				AA6669552119390300C9D491 /* UICardView.swift in Sources */,
 				AA666927211930B100C9D491 /* ViewController.swift in Sources */,
-				AA1E8F19211D34D4004CA681 /* ExpenseService.swift in Sources */,
 				AA666925211930B100C9D491 /* AppDelegate.swift in Sources */,
-				AA1E8F1E211D3ABB004CA681 /* ExpenseServiceImpl.swift in Sources */,
-				AA1E8F1C211D356B004CA681 /* CategoryServiceImpl.swift in Sources */,
+				5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */,
 				AA66695A2119597F00C9D491 /* UIRoundedView.swift in Sources */,
-				AA1E8F0E211D2C01004CA681 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +577,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.phyohtet.MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -688,7 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.phyohtet.MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -810,6 +721,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C341EC1211EA91700A48609 /* MyExpense.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C341EC2211EA91700A48609 /* MyExpense.xcdatamodel */,
+			);
+			currentVersion = 5C341EC2211EA91700A48609 /* MyExpense.xcdatamodel */;
+			path = MyExpense.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AA666919211930B100C9D491 /* Project object */;
 }
