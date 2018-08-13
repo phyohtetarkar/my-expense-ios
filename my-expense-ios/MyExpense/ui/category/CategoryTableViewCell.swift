@@ -2,13 +2,18 @@
 //  CategoryTableViewCell.swift
 //  MyExpense
 //
-//  Created by OP-Macmini3 on 8/13/18.
+//  Created by Phyo Htet Arkar on 8/13/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var colorView: UIRoundedView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

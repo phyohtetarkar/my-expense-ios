@@ -47,6 +47,20 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
             fatalError("Invalid cell")
         }
         
+        let category = fetchedResultController.object(at: indexPath)
+        
+        let today = Date()
+        let year = Calendar.current.component(.year, from: today)
+        let month = Calendar.current.component(.month, from: today)
+        
+        let amount = category.expenses?.filter({ e in
+            let exp = e as! Expense
+            return exp.year == year && exp.month == month
+        }).map({ ($0 as! Expense).amount }).reduce(0, +)
+        
+        cell.nameLabel.text = category.name
+        cell.amountLabel.text = String(amount ?? 0)
+        
         return cell
     }
 
