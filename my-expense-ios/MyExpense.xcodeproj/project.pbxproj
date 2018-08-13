@@ -21,6 +21,8 @@
 		AA6669552119390300C9D491 /* UICardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6669542119390300C9D491 /* UICardView.swift */; };
 		AA666958211955B200C9D491 /* UIScalableProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA666957211955B200C9D491 /* UIScalableProgressView.swift */; };
 		AA66695A2119597F00C9D491 /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6669592119597F00C9D491 /* UIRoundedView.swift */; };
+		AAB285C721213E0700BF88D6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB285C621213E0700BF88D6 /* CategoriesViewController.swift */; };
+		AAB285CA2121400300BF88D6 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB285C92121400300BF88D6 /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		AA6669542119390300C9D491 /* UICardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICardView.swift; sourceTree = "<group>"; };
 		AA666957211955B200C9D491 /* UIScalableProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScalableProgressView.swift; sourceTree = "<group>"; };
 		AA6669592119597F00C9D491 /* UIRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedView.swift; sourceTree = "<group>"; };
+		AAB285C621213E0700BF88D6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		AAB285C92121400300BF88D6 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */,
+				AAB285C621213E0700BF88D6 /* CategoriesViewController.swift */,
+				AAB285C92121400300BF88D6 /* CategoryTableViewCell.swift */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -380,8 +386,10 @@
 			files = (
 				AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */,
 				AA666958211955B200C9D491 /* UIScalableProgressView.swift in Sources */,
+				AAB285C721213E0700BF88D6 /* CategoriesViewController.swift in Sources */,
 				AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */,
 				AA6669552119390300C9D491 /* UICardView.swift in Sources */,
+				AAB285CA2121400300BF88D6 /* CategoryTableViewCell.swift in Sources */,
 				AA666927211930B100C9D491 /* ViewController.swift in Sources */,
 				AA666925211930B100C9D491 /* AppDelegate.swift in Sources */,
 				5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */,
