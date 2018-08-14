@@ -229,7 +229,7 @@
                                             <outlet property="colorView" destination="rOm-PW-imY" id="jbV-Jx-ode"/>
                                             <outlet property="nameLabel" destination="HPr-zZ-v3B" id="6iN-wV-FKC"/>
                                             <outlet property="progressView" destination="1co-Ah-9A4" id="3IR-uR-2SE"/>
-                                            <segue destination="2xC-mO-Xgy" kind="presentation" id="dwl-Lp-hAe"/>
+                                            <segue destination="H07-Mu-4gq" kind="show" identifier="categoryDetail" id="I9x-Yn-gbx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -309,7 +309,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zvf-8c-TgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="831"/>
+            <point key="canvasLocation" x="2001" y="1215"/>
         </scene>
         <!--Add Category-->
         <scene sceneID="2wk-Yx-3mJ">
@@ -620,6 +620,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryNameTextField" destination="qWA-8s-Ckh" id="MrZ-ny-ovG"/>
                         <outlet property="colorsView" destination="P3p-jv-wYg" id="TqX-d4-lVw"/>
@@ -980,6 +981,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="H8e-gj-EiD"/>
+        <segue reference="I9x-Yn-gbx"/>
     </inferredMetricsTieBreakers>
 </document>

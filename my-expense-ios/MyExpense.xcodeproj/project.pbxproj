@@ -10,6 +10,8 @@
 		5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C341EC1211EA91700A48609 /* MyExpense.xcdatamodeld */; };
 		AA1E8F6A211D5486004CA681 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E8F66211D5475004CA681 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */; };
+		AA3F841921229BDF00EC4484 /* EditExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F841821229BDF00EC4484 /* EditExpenseViewController.swift */; };
+		AA3F841B21229C0B00EC4484 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F841A21229C0B00EC4484 /* ExpensesViewController.swift */; };
 		AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */; };
 		AA666925211930B100C9D491 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA666924211930B100C9D491 /* AppDelegate.swift */; };
 		AA666927211930B100C9D491 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA666926211930B100C9D491 /* ViewController.swift */; };
@@ -81,6 +83,8 @@
 		5C341EC2211EA91700A48609 /* MyExpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyExpense.xcdatamodel; sourceTree = "<group>"; };
 		AA1E8F60211D5474004CA681 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Carthage/Checkouts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		AA1E8F72211D8ACC004CA681 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
+		AA3F841821229BDF00EC4484 /* EditExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseViewController.swift; sourceTree = "<group>"; };
+		AA3F841A21229C0B00EC4484 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
 		AA666921211930B100C9D491 /* MyExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA666924211930B100C9D491 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		AA3F841721229BB100EC4484 /* expense */ = {
+			isa = PBXGroup;
+			children = (
+				AA3F841821229BDF00EC4484 /* EditExpenseViewController.swift */,
+				AA3F841A21229C0B00EC4484 /* ExpensesViewController.swift */,
+			);
+			path = expense;
+			sourceTree = "<group>";
+		};
 		AA455E05211A7FA100E0858D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +192,9 @@
 		AA666923211930B100C9D491 /* MyExpense */ = {
 			isa = PBXGroup;
 			children = (
-				AA6669522119384400C9D491 /* ui */,
+				AA3F841721229BB100EC4484 /* expense */,
+				AA1E8F70211D8A65004CA681 /* category */,
+				AA666953211938BB00C9D491 /* custom */,
 				AA666924211930B100C9D491 /* AppDelegate.swift */,
 				AA666926211930B100C9D491 /* ViewController.swift */,
 				AA666928211930B100C9D491 /* Main.storyboard */,
@@ -206,15 +221,6 @@
 				AA666946211930B300C9D491 /* Info.plist */,
 			);
 			path = MyExpenseUITests;
-			sourceTree = "<group>";
-		};
-		AA6669522119384400C9D491 /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				AA1E8F70211D8A65004CA681 /* category */,
-				AA666953211938BB00C9D491 /* custom */,
-			);
-			path = ui;
 			sourceTree = "<group>";
 		};
 		AA666953211938BB00C9D491 /* custom */ = {
@@ -389,7 +395,9 @@
 				AAB285C721213E0700BF88D6 /* CategoriesViewController.swift in Sources */,
 				AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */,
 				AA6669552119390300C9D491 /* UICardView.swift in Sources */,
+				AA3F841B21229C0B00EC4484 /* ExpensesViewController.swift in Sources */,
 				AAB285CA2121400300BF88D6 /* CategoryTableViewCell.swift in Sources */,
+				AA3F841921229BDF00EC4484 /* EditExpenseViewController.swift in Sources */,
 				AA666927211930B100C9D491 /* ViewController.swift in Sources */,
 				AA666925211930B100C9D491 /* AppDelegate.swift in Sources */,
 				5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */,
@@ -572,7 +580,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -584,6 +593,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phyohtet.MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -594,7 +604,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -606,6 +617,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.phyohtet.MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

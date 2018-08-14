@@ -1,26 +1,15 @@
 //
-//  EditCategoryViewController.swift
+//  EditExpenseViewController.swift
 //  MyExpense
 //
-//  Created by Phyo Htet Arkar on 8/10/18.
+//  Created by Phyo Htet Arkar on 8/14/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class EditCategoryViewController: UITableViewController {
-    
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    private var isNew = false
-    private var sectionCount = 3
+class EditExpenseViewController: UITableViewController {
 
-    @IBOutlet weak var categoryNameTextField: UITextField!
-    @IBOutlet weak var colorsView: UICollectionView!
-    
-    var category: Category? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,63 +18,23 @@ class EditCategoryViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        if category == nil {
-            category = Category(context: context)
-            isNew = true
-            sectionCount = 2
-        }
-        
-        categoryNameTextField.text = category?.name
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view action
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 3 {
-            let alert = UIAlertController(title: "Confirm Delete", message: "Are you sure to delete category?", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [unowned self] action in
-                self.context.delete(self.category!)
-                do {
-                    try self.context.save()
-                } catch let error as NSError {
-                    print(error)
-                }
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    // MARK: - Navigation Button action
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        category?.name = categoryNameTextField.text
-        do {
-            try context.save()
-            dismiss(animated: true, completion: nil)
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sectionCount
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
     /*
