@@ -12,8 +12,7 @@ import CoreData
 class EditCategoryViewController: UITableViewController {
     
     private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    private var isNew = false
+
     private var sectionCount = 3
 
     @IBOutlet weak var categoryNameTextField: UITextField!
@@ -30,10 +29,7 @@ class EditCategoryViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        isNew = (category == nil)
-        
-        if isNew {
-            category = Category(context: context)
+        if category == nil {
             sectionCount = 2
         }
         
@@ -69,6 +65,11 @@ class EditCategoryViewController: UITableViewController {
     // MARK: - Navigation Button action
     
     @IBAction func save(_ sender: UIBarButtonItem) {
+        
+        if category == nil {
+            category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: context)
+        }
+        
         category?.name = categoryNameTextField.text
         do {
             try context.save()

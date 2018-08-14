@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class ExpensesViewController: UIViewController {
+    
+    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
+        
+        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

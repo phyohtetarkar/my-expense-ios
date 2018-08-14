@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class EditExpenseViewController: UITableViewController {
+    
+    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var expense: Expense? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
