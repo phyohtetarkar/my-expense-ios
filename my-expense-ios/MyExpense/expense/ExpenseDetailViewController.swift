@@ -7,8 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 class ExpenseDetailViewController: UITableViewController {
+    
+    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
+        
+        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        
+        let year = Calendar.current.component(.year, from: detail!.date)
+        let month = Calendar.current.component(.month, from: detail!.date)
+        let day = Calendar.current.component(.day, from: detail!.date)
+        
+        let yearPred = NSPredicate(format: "year = %@", year)
+        let monthPred = NSPredicate(format: "month = %@", month)
+        let dayPred = NSPredicate(format: "day = %@", day)
+        
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPred, monthPred, dayPred])
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return controller
+    }()
+    
+    var detail: ExpenseDetail? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
