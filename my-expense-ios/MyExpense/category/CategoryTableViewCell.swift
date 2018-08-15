@@ -13,7 +13,6 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var colorView: UIRoundedView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
