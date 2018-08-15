@@ -1,19 +1,14 @@
 //
-//  EditExpenseViewController.swift
+//  ExpenseDetailViewController.swift
 //  MyExpense
 //
-//  Created by Phyo Htet Arkar on 8/14/18.
+//  Created by Phyo Htet Arkar on 8/15/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class EditExpenseViewController: UITableViewController, UIViewControllerTransitioningDelegate {
-    
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var expense: Expense? = nil
+class ExpenseDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +36,6 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-    
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return CustomHeightPresentationController(presentedViewController: presented, presenting: presenting, height: 261)
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,19 +57,4 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     }
     */
 
-}
-
-class CustomHeightPresentationController: UIPresentationController {
-    
-    private var height: CGFloat
-    
-    init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, height: CGFloat) {
-        self.height = height
-        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
-    }
-    
-    override var frameOfPresentedViewInContainerView: CGRect {
-        return CGRect(x: 0.0, y: 0.0, width: containerView?.bounds.width ?? 0, height: height)
-    }
-    
 }

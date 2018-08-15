@@ -283,7 +283,7 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.47843137254901957" green="0.50588235294117645" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -380,199 +380,8 @@
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-4D-n19">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </view>
-                                                                </subviews>
                                                             </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="9w1-4D-n19" secondAttribute="trailing" id="CR8-Q6-NE6"/>
-                                                                <constraint firstAttribute="bottom" secondItem="9w1-4D-n19" secondAttribute="bottom" id="bYW-YR-ZP2"/>
-                                                                <constraint firstItem="9w1-4D-n19" firstAttribute="top" secondItem="kgp-Hm-g0U" secondAttribute="top" id="hpa-go-Ktz"/>
-                                                                <constraint firstItem="9w1-4D-n19" firstAttribute="leading" secondItem="kgp-Hm-g0U" secondAttribute="leading" id="rJD-jY-CzM"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hdy-jt-ifg">
-                                                            <rect key="frame" x="70.666666666666671" y="0.0" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOz-fJ-rin">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="MOz-fJ-rin" secondAttribute="trailing" id="4r3-JX-EUt"/>
-                                                                <constraint firstAttribute="bottom" secondItem="MOz-fJ-rin" secondAttribute="bottom" id="Bv3-N4-2D9"/>
-                                                                <constraint firstItem="MOz-fJ-rin" firstAttribute="leading" secondItem="hdy-jt-ifg" secondAttribute="leading" id="Uig-Wc-xid"/>
-                                                                <constraint firstItem="MOz-fJ-rin" firstAttribute="top" secondItem="hdy-jt-ifg" secondAttribute="top" id="jMN-9v-qME"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2Aj-qv-kaO">
-                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-y5-Xsi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="v2c-y5-Xsi" firstAttribute="top" secondItem="2Aj-qv-kaO" secondAttribute="top" id="0g3-pe-Za9"/>
-                                                                <constraint firstItem="v2c-y5-Xsi" firstAttribute="leading" secondItem="2Aj-qv-kaO" secondAttribute="leading" id="EsI-Nr-sJc"/>
-                                                                <constraint firstAttribute="bottom" secondItem="v2c-y5-Xsi" secondAttribute="bottom" id="H4h-jo-Ukg"/>
-                                                                <constraint firstAttribute="trailing" secondItem="v2c-y5-Xsi" secondAttribute="trailing" id="e0f-WV-ERN"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0vt-c7-1Uw">
-                                                            <rect key="frame" x="212.33333333333334" y="0.0" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gau-PD-k6P">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="Gau-PD-k6P" secondAttribute="trailing" id="8p6-ek-LyG"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Gau-PD-k6P" secondAttribute="bottom" id="dEO-DL-7i6"/>
-                                                                <constraint firstItem="Gau-PD-k6P" firstAttribute="top" secondItem="0vt-c7-1Uw" secondAttribute="top" id="i0P-gn-D3n"/>
-                                                                <constraint firstItem="Gau-PD-k6P" firstAttribute="leading" secondItem="0vt-c7-1Uw" secondAttribute="leading" id="pko-M1-SAB"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KsD-4D-FfG">
-                                                            <rect key="frame" x="283" y="0.0" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxP-Vh-JaN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="sxP-Vh-JaN" firstAttribute="leading" secondItem="KsD-4D-FfG" secondAttribute="leading" id="2sm-oA-fNo"/>
-                                                                <constraint firstItem="sxP-Vh-JaN" firstAttribute="top" secondItem="KsD-4D-FfG" secondAttribute="top" id="5Mh-F2-FkA"/>
-                                                                <constraint firstAttribute="bottom" secondItem="sxP-Vh-JaN" secondAttribute="bottom" id="HEN-b6-icn"/>
-                                                                <constraint firstAttribute="trailing" secondItem="sxP-Vh-JaN" secondAttribute="trailing" id="yUS-HT-eut"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="og3-xN-KzH">
-                                                            <rect key="frame" x="0.0" y="50" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbm-cr-Uhc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="xbm-cr-Uhc" secondAttribute="bottom" id="MTS-hD-a9d"/>
-                                                                <constraint firstAttribute="trailing" secondItem="xbm-cr-Uhc" secondAttribute="trailing" id="jdd-K2-25g"/>
-                                                                <constraint firstItem="xbm-cr-Uhc" firstAttribute="leading" secondItem="og3-xN-KzH" secondAttribute="leading" id="uw1-e7-3Dg"/>
-                                                                <constraint firstItem="xbm-cr-Uhc" firstAttribute="top" secondItem="og3-xN-KzH" secondAttribute="top" id="xWH-xs-553"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OFg-GY-oE1">
-                                                            <rect key="frame" x="70.666666666666671" y="50" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-MM-uq1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="CaR-MM-uq1" firstAttribute="top" secondItem="OFg-GY-oE1" secondAttribute="top" id="GDR-jq-psu"/>
-                                                                <constraint firstItem="CaR-MM-uq1" firstAttribute="leading" secondItem="OFg-GY-oE1" secondAttribute="leading" id="L8W-Zi-W14"/>
-                                                                <constraint firstAttribute="bottom" secondItem="CaR-MM-uq1" secondAttribute="bottom" id="Q9w-An-K2D"/>
-                                                                <constraint firstAttribute="trailing" secondItem="CaR-MM-uq1" secondAttribute="trailing" id="fSk-Gu-igp"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Igc-Ne-8fQ">
-                                                            <rect key="frame" x="141.66666666666666" y="50" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-ol-kA1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.40000000000000002" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="fhh-ol-kA1" secondAttribute="bottom" id="SQK-zZ-Xfm"/>
-                                                                <constraint firstAttribute="trailing" secondItem="fhh-ol-kA1" secondAttribute="trailing" id="XpO-Hh-hLU"/>
-                                                                <constraint firstItem="fhh-ol-kA1" firstAttribute="top" secondItem="Igc-Ne-8fQ" secondAttribute="top" id="ovG-nL-zqo"/>
-                                                                <constraint firstItem="fhh-ol-kA1" firstAttribute="leading" secondItem="Igc-Ne-8fQ" secondAttribute="leading" id="plz-QF-OfJ"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bGP-N7-0g7">
-                                                            <rect key="frame" x="212.33333333333334" y="50" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2e-M2-v60">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="l2e-M2-v60" firstAttribute="leading" secondItem="bGP-N7-0g7" secondAttribute="leading" id="8Es-O1-0y8"/>
-                                                                <constraint firstItem="l2e-M2-v60" firstAttribute="top" secondItem="bGP-N7-0g7" secondAttribute="top" id="ABY-Qd-EkD"/>
-                                                                <constraint firstAttribute="trailing" secondItem="l2e-M2-v60" secondAttribute="trailing" id="ZGX-68-TOX"/>
-                                                                <constraint firstAttribute="bottom" secondItem="l2e-M2-v60" secondAttribute="bottom" id="q86-Yx-mAq"/>
-                                                            </constraints>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="p5A-Ud-UNW">
-                                                            <rect key="frame" x="283" y="50" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-ut-XyT">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
-                                                                        <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="8Pu-ut-XyT" secondAttribute="bottom" id="LwZ-e5-gM4"/>
-                                                                <constraint firstAttribute="trailing" secondItem="8Pu-ut-XyT" secondAttribute="trailing" id="PVX-gv-vJx"/>
-                                                                <constraint firstItem="8Pu-ut-XyT" firstAttribute="top" secondItem="p5A-Ud-UNW" secondAttribute="top" id="cM9-6X-6zJ"/>
-                                                                <constraint firstItem="8Pu-ut-XyT" firstAttribute="leading" secondItem="p5A-Ud-UNW" secondAttribute="leading" id="pKU-V5-a3c"/>
-                                                            </constraints>
+                                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -631,8 +440,8 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="categoryNameTextField" destination="qWA-8s-Ckh" id="MrZ-ny-ovG"/>
                         <outlet property="colorsView" destination="P3p-jv-wYg" id="TqX-d4-lVw"/>
+                        <outlet property="nameTextField" destination="qWA-8s-Ckh" id="cb0-7x-sOn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBe-1X-xyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1209,7 +1018,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ixl-JU-pzV"/>
+        <segue reference="4mt-kI-uVb"/>
         <segue reference="H8e-gj-EiD"/>
     </inferredMetricsTieBreakers>
 </document>

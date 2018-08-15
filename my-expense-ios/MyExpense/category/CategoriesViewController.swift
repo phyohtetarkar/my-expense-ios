@@ -48,18 +48,8 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         let category = fetchedResultController.object(at: indexPath)
-        
-        let today = Date()
-        let year = Calendar.current.component(.year, from: today)
-        let month = Calendar.current.component(.month, from: today)
-        
-        let amount = category.expenses?.map({ $0 as! Expense }).filter({ exp in
-            return Int(exp.year) == year && Int(exp.month) == month
-        }).map({ $0.amount }).reduce(0, +)
-        
-        cell.nameLabel.text = category.name
-        cell.amountLabel.text = String(amount ?? 0)
-        
+        cell.bind(category: category)
+
         return cell
     }
 
