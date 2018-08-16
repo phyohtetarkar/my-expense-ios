@@ -27,6 +27,9 @@
 		AA66695A2119597F00C9D491 /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6669592119597F00C9D491 /* UIRoundedView.swift */; };
 		AAB285C721213E0700BF88D6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB285C621213E0700BF88D6 /* CategoriesViewController.swift */; };
 		AAB285CA2121400300BF88D6 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB285C92121400300BF88D6 /* CategoryTableViewCell.swift */; };
+		AAC3721E21250E4A00D6E3D3 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC3721D21250E4A00D6E3D3 /* CategorySelectionViewController.swift */; };
+		AAC3722121250E9E00D6E3D3 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC3722021250E9E00D6E3D3 /* BasicTableViewCell.swift */; };
+		AAC37223212513DA00D6E3D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC37222212513DA00D6E3D3 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,9 @@
 		AA6669592119597F00C9D491 /* UIRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedView.swift; sourceTree = "<group>"; };
 		AAB285C621213E0700BF88D6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		AAB285C92121400300BF88D6 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		AAC3721D21250E4A00D6E3D3 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		AAC3722021250E9E00D6E3D3 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		AAC37222212513DA00D6E3D3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,8 @@
 				AA2E70B52123D96200CF53BD /* ExpenseDetailViewController.swift */,
 				AA2E70B72123E5AB00CF53BD /* ExpenseDetail.swift */,
 				AA2E70B92123EB2500CF53BD /* ExpenseDataManager.swift */,
+				AAC3721D21250E4A00D6E3D3 /* CategorySelectionViewController.swift */,
+				AAC3722021250E9E00D6E3D3 /* BasicTableViewCell.swift */,
 			);
 			path = expense;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 				AA1E8F70211D8A65004CA681 /* category */,
 				AA666953211938BB00C9D491 /* custom */,
 				AA666924211930B100C9D491 /* AppDelegate.swift */,
+				AAC37222212513DA00D6E3D3 /* HomeViewController.swift */,
 				AA666928211930B100C9D491 /* Main.storyboard */,
 				AA66692B211930B300C9D491 /* Assets.xcassets */,
 				AA66692D211930B300C9D491 /* LaunchScreen.storyboard */,
@@ -399,16 +408,19 @@
 				AA1E8F73211D8ACC004CA681 /* EditCategoryViewController.swift in Sources */,
 				AAB285C721213E0700BF88D6 /* CategoriesViewController.swift in Sources */,
 				AA2E70B82123E5AB00CF53BD /* ExpenseDetail.swift in Sources */,
+				AAC37223212513DA00D6E3D3 /* HomeViewController.swift in Sources */,
 				AA455E0C211AB7AD00E0858D /* UIRoundedButton.swift in Sources */,
 				AA6669552119390300C9D491 /* UICardView.swift in Sources */,
 				AA3F841B21229C0B00EC4484 /* ExpensesViewController.swift in Sources */,
 				AA3F841D21229DF900EC4484 /* ExpenseTableViewCell.swift in Sources */,
 				AAB285CA2121400300BF88D6 /* CategoryTableViewCell.swift in Sources */,
+				AAC3722121250E9E00D6E3D3 /* BasicTableViewCell.swift in Sources */,
 				AA3F841921229BDF00EC4484 /* EditExpenseViewController.swift in Sources */,
 				AA666925211930B100C9D491 /* AppDelegate.swift in Sources */,
 				5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */,
 				AA66695A2119597F00C9D491 /* UIRoundedView.swift in Sources */,
 				AA2E70BA2123EB2500CF53BD /* ExpenseDataManager.swift in Sources */,
+				AAC3721E21250E4A00D6E3D3 /* CategorySelectionViewController.swift in Sources */,
 				AA2E70B62123D96200CF53BD /* ExpenseDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

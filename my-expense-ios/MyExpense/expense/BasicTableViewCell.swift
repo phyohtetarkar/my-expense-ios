@@ -1,17 +1,16 @@
 //
-//  ExpenseTableViewCell.swift
+//  BasicTableViewCell.swift
 //  MyExpense
 //
-//  Created by Phyo Htet Arkar on 8/14/18.
+//  Created by OP-Macmini3 on 8/16/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseTableViewCell: UITableViewCell {
+class BasicTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var dateTextField: UILabel!
-    @IBOutlet weak var amountTextField: UILabel!
+    @IBOutlet weak var nameTextField: UILabel!    
 
     override func awakeFromNib() {
         super.awakeFromNib()

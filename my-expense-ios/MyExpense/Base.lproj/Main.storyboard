@@ -72,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="60.333333333333314" width="375" height="580.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellExpense" textLabel="nAa-Ws-LQJ" detailTextLabel="fQk-Wj-Q71" style="IBUITableViewCellStyleValue1" id="sR3-1U-kzR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellExpense" textLabel="nAa-Ws-LQJ" detailTextLabel="fQk-Wj-Q71" style="IBUITableViewCellStyleValue1" id="sR3-1U-kzR" customClass="ExpenseTableViewCell" customModule="MyExpense" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sR3-1U-kzR" id="duV-nJ-8lL">
@@ -96,6 +96,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="amountTextField" destination="fQk-Wj-Q71" id="bWA-ts-LyI"/>
+                                            <outlet property="dateTextField" destination="nAa-Ws-LQJ" id="gj5-mx-opj"/>
                                             <segue destination="AYv-uF-A0p" kind="show" id="REQ-PI-LBJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -124,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGY-bm-vIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="95"/>
+            <point key="canvasLocation" x="2833" y="95"/>
         </scene>
         <!--Categories-->
         <scene sceneID="SND-ex-wpo">
@@ -247,13 +249,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEc-2C-ha7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="848"/>
+            <point key="canvasLocation" x="1137" y="454"/>
         </scene>
         <!--Categories-->
         <scene sceneID="NXe-Eu-TOQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cET-ad-H5w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="l9S-o8-5r0"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="CategoryIcon" id="l9S-o8-5r0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="DoG-DY-pJf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -271,7 +273,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqB-9b-pF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906" y="848"/>
+            <point key="canvasLocation" x="81" y="454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TnT-ji-OTJ">
@@ -294,7 +296,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zvf-8c-TgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="848"/>
+            <point key="canvasLocation" x="1137" y="1283"/>
         </scene>
         <!--Add Category-->
         <scene sceneID="2wk-Yx-3mJ">
@@ -422,13 +424,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBe-1X-xyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="848"/>
+            <point key="canvasLocation" x="2046" y="1283"/>
         </scene>
         <!--Expenses-->
         <scene sceneID="16P-u0-tGl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X77-kI-pee" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Expenses" id="4n8-lg-tAB"/>
+                    <tabBarItem key="tabBarItem" title="Expenses" image="ExpenseIcon" id="4n8-lg-tAB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Hn1-Iz-TRd">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -447,13 +449,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bh6-dQ-vU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="95"/>
+            <point key="canvasLocation" x="2046" y="95"/>
         </scene>
         <!--Home-->
         <scene sceneID="tge-3t-zcr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kEA-WH-CAE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="WqC-66-vEn"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="DashboardIcon" id="WqC-66-vEn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jsk-h1-y8e">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -471,12 +473,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSG-7e-qie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-647"/>
+            <point key="canvasLocation" x="81" y="-316"/>
         </scene>
         <!--Overview-->
         <scene sceneID="daA-AY-mn6">
             <objects>
-                <viewController id="dQJ-Rn-45q" sceneMemberID="viewController">
+                <viewController id="dQJ-Rn-45q" customClass="HomeViewController" customModule="MyExpense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOf-k3-oXX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -592,10 +594,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="barChartView" destination="RLU-cL-qn2" id="THd-yP-g3d"/>
+                        <outlet property="pieChartView" destination="hDr-NF-Hrf" id="RrX-Ho-Rpx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmd-h5-g4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="-647.29064039408865"/>
+            <point key="canvasLocation" x="1174" y="-316"/>
         </scene>
         <!--Expense Detail-->
         <scene sceneID="31D-0R-7Ea">
@@ -661,7 +667,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d22-Ip-2AU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3204" y="440"/>
+            <point key="canvasLocation" x="3700" y="890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XkW-iQ-saG">
@@ -684,12 +690,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PF3-CS-76r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="95"/>
+            <point key="canvasLocation" x="4470" y="-289"/>
         </scene>
         <!--Add Expense-->
         <scene sceneID="gpz-Ol-p01">
             <objects>
-                <tableViewController id="P2u-EH-cen" sceneMemberID="viewController">
+                <tableViewController id="P2u-EH-cen" customClass="EditExpenseViewController" customModule="MyExpense" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="35" sectionFooterHeight="28" id="LQO-gF-3Zt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -875,24 +881,37 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Expense" id="lDD-1e-j91">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QwF-xd-xCh"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="5j0-u8-aMe"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QwF-xd-xCh">
+                            <connections>
+                                <action selector="cancel:" destination="P2u-EH-cen" id="LIy-9g-0ux"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="5j0-u8-aMe">
+                            <connections>
+                                <action selector="saveExpense:" destination="P2u-EH-cen" id="K3v-jf-4L3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="S6Q-D7-eEt" id="IMY-1d-8Mx"/>
+                        <outlet property="noteTextField" destination="mV0-Ww-XFR" id="ty6-dV-D4p"/>
+                        <outlet property="titleTextField" destination="Uxm-JC-tAz" id="T5e-PU-uR2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7Z-Tr-Qdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4873" y="95"/>
+            <point key="canvasLocation" x="5281" y="95"/>
         </scene>
         <!--Choose-->
         <scene sceneID="9dg-2u-EJJ">
             <objects>
-                <tableViewController title="Choose" id="lNI-1R-csm" sceneMemberID="viewController">
+                <tableViewController title="Choose" id="lNI-1R-csm" customClass="CategorySelectionViewController" customModule="MyExpense" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dpl-fi-pyt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellChooseCategory" textLabel="3OP-eW-pl2" style="IBUITableViewCellStyleDefault" id="4Wo-UO-r3D">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellChooseCategory" textLabel="3OP-eW-pl2" style="IBUITableViewCellStyleDefault" id="4Wo-UO-r3D" customClass="BasicTableViewCell" customModule="MyExpense" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Wo-UO-r3D" id="K11-HN-hDl">
@@ -908,6 +927,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameTextField" destination="3OP-eW-pl2" id="aOq-lw-hUY"/>
+                                    <segue destination="E7s-c8-oaK" kind="unwind" unwindAction="unwindToEditExpense:" id="Du6-94-pya"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -917,8 +940,9 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCf-Af-pJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="E7s-c8-oaK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5814" y="455"/>
+            <point key="canvasLocation" x="6209" y="454"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VaB-Rj-U4R">
@@ -990,7 +1014,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx9-oP-g8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5804" y="-214"/>
+            <point key="canvasLocation" x="6209" y="-219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o9W-sW-cnH">
@@ -1013,11 +1037,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8N-de-efd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444" y="440"/>
+            <point key="canvasLocation" x="2833" y="890"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CategoryIcon" width="25" height="25"/>
+        <image name="DashboardIcon" width="24" height="25"/>
+        <image name="ExpenseIcon" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yEf-VA-3lZ"/>
+        <segue reference="ixl-JU-pzV"/>
         <segue reference="H8e-gj-EiD"/>
     </inferredMetricsTieBreakers>
 </document>
