@@ -11,7 +11,7 @@ import CoreData
 
 class ExpensesViewController: UIViewController {
     
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var context: NSManagedObjectContext = AppDelegate.objectContext
     private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
         
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()

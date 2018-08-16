@@ -16,7 +16,7 @@ let CATEGORYCOLORS: [Int: UIColor] = [
 
 class EditCategoryViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var context: NSManagedObjectContext = AppDelegate.objectContext
 
     private var sectionCount = 3
     

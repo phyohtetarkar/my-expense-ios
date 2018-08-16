@@ -15,7 +15,7 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextView!
     
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var context: NSManagedObjectContext = AppDelegate.objectContext
     
     var expense: Expense? = nil
 

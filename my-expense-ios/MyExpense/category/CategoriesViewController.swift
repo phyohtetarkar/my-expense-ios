@@ -13,7 +13,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var context: NSManagedObjectContext = AppDelegate.objectContext
     private lazy var fetchedResultController: NSFetchedResultsController<Category> = {
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
