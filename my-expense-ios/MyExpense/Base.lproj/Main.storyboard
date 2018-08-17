@@ -68,6 +68,11 @@
                                     <constraint firstAttribute="trailing" secondItem="mUe-8i-kdV" secondAttribute="trailing" constant="10" id="rHM-rt-OCy"/>
                                     <constraint firstAttribute="bottom" secondItem="mUe-8i-kdV" secondAttribute="bottom" constant="10" id="uDZ-VI-4WC"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXl-Yf-HBk">
                                 <rect key="frame" x="0.0" y="60.333333333333314" width="375" height="580.66666666666674"/>
@@ -262,7 +267,7 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -668,7 +673,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d22-Ip-2AU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="890"/>
+            <point key="canvasLocation" x="3662" y="890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XkW-iQ-saG">
@@ -691,7 +696,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PF3-CS-76r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4470" y="-289"/>
+            <point key="canvasLocation" x="4471" y="-282"/>
         </scene>
         <!--Add Expense-->
         <scene sceneID="gpz-Ol-p01">
@@ -1047,7 +1052,7 @@
         <image name="ExpenseIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ixl-JU-pzV"/>
+        <segue reference="4mt-kI-uVb"/>
         <segue reference="H8e-gj-EiD"/>
     </inferredMetricsTieBreakers>
 </document>
