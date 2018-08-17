@@ -426,6 +426,7 @@
                     <connections>
                         <outlet property="colorsView" destination="P3p-jv-wYg" id="TqX-d4-lVw"/>
                         <outlet property="nameTextField" destination="qWA-8s-Ckh" id="cb0-7x-sOn"/>
+                        <outlet property="saveBarButton" destination="NSF-YY-C0A" id="Yf5-gj-sIe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBe-1X-xyY" userLabel="First Responder" sceneMemberID="firstResponder"/>

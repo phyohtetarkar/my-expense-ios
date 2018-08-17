@@ -14,7 +14,7 @@ let CATEGORYCOLORS: [Int: UIColor] = [
     5: #colorLiteral(red: 0.8466523886, green: 0.3456366658, blue: 1, alpha: 1), 6: #colorLiteral(red: 0.6638882756, green: 0.6557548046, blue: 0.2578871548, alpha: 1), 7: #colorLiteral(red: 0.2199882269, green: 0.8307816982, blue: 0.8380283117, alpha: 1), 8: #colorLiteral(red: 0, green: 0.5008062124, blue: 1, alpha: 1), 9: #colorLiteral(red: 0.8439414501, green: 0.4790760279, blue: 0, alpha: 1)
 ]
 
-class EditCategoryViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class EditCategoryViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate {
     
     private var context: NSManagedObjectContext = AppDelegate.objectContext
 
@@ -24,6 +24,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorsView: UICollectionView!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     
     var category: Category? = nil
     
@@ -41,9 +42,12 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         }
         
         nameTextField.text = category?.name
+        nameTextField.delegate = self
         
         colorsView.dataSource = self
         colorsView.delegate = self
+        
+        validate()
         
     }
 
@@ -57,6 +61,12 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return sectionCount
+    }
+    
+    // MARK: - TextField action
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        validate()
     }
     
     // MARK: - Table view action
@@ -133,6 +143,16 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         let cell = colorsView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 2.0
     }
+    
+    private func validate() {
+        guard nameTextField.text?.isEmpty ?? false else {
+            saveBarButton.isEnabled = false
+            
+            return
+        }
+        
+        saveBarButton.isEnabled = true
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,41 +161,6 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         // Configure the cell...
 
         return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
     }
     */
 
