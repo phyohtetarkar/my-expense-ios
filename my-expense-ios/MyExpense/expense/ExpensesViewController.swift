@@ -15,6 +15,7 @@ class ExpensesViewController: UIViewController {
     private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
         
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         

@@ -16,13 +16,10 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func bind(category: Category?) {
@@ -38,9 +35,7 @@ class CategoryTableViewCell: UITableViewCell {
             nameLabel.text = c.name
             
             if let amt = amount, amt > 0 {
-                amountLabel.text = String(amt)
-            } else {
-                amountLabel.text = "000"
+                amountLabel.text = amt.asString()
             }
             
             colorView.backgroundColor = CATEGORYCOLORS[Int(c.color)]

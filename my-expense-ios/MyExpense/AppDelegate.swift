@@ -98,3 +98,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension Double {
+    func asString() -> String {
+        let abs = Int(self)
+        
+        if (self - Double(abs)) > 0 {
+            return self.description
+        } else {
+            return abs.description
+        }
+    }
+}
+

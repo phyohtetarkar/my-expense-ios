@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+fileprivate let reuseIdentifier = "cellCategory"
+fileprivate let segueIdentifier = "editCategory"
+
+class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var monthYearLabel: UILabel!
@@ -20,9 +23,11 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     private lazy var categoryResultController: NSFetchedResultsController<Category> = {
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate = self
         
         return controller
     }()
@@ -50,27 +55,26 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM, yyyy"
-        
-        monthYearLabel.text = formatter.string(from: date)
-        
-        if let amt = expenseResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
-            expenseAmountLabel.text = "\(amt)"
-        } else {
-            expenseAmountLabel.text = "000"
-        }
         
         do {
+            tableView.delegate = self
+            tableView.dataSource = self
+            
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM, yyyy"
+            
+            monthYearLabel.text = formatter.string(from: date)
+            
+            if let amt = expenseResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
+                expenseAmountLabel.text = amt.asString()
+            } else {
+                expenseAmountLabel.text = "000"
+            }
+            
             try categoryResultController.performFetch()
-            tableView.reloadData()
         } catch let error as NSError {
-            print(error)
+            fatalError(error.localizedDescription)
         }
         
     }
@@ -95,7 +99,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellCategory", for: indexPath) as? CategoryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? CategoryTableViewCell else {
             fatalError("Invalid cell")
         }
         
@@ -104,15 +108,38 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
 
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
     }
-    */
+
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case segueIdentifier:
+            guard let dest = segue.destination as? EditCategoryViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCell = sender as? CategoryTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let category = categoryResultController.object(at: indexPath)
+            dest.category = category
+            
+        default:
+            break
+        }
+    }
+    
 
 }

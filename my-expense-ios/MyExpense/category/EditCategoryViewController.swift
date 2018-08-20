@@ -11,8 +11,10 @@ import CoreData
 
 let CATEGORYCOLORS: [Int: UIColor] = [
     0: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), 1: #colorLiteral(red: 1, green: 0.3005838394, blue: 0.2565174997, alpha: 1), 2: #colorLiteral(red: 1, green: 0.4863265157, blue: 0, alpha: 1), 3: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), 4: #colorLiteral(red: 1, green: 0.8288275599, blue: 0, alpha: 1),
-    5: #colorLiteral(red: 0.8466523886, green: 0.3456366658, blue: 1, alpha: 1), 6: #colorLiteral(red: 0.6638882756, green: 0.6557548046, blue: 0.2578871548, alpha: 1), 7: #colorLiteral(red: 0.2199882269, green: 0.8307816982, blue: 0.8380283117, alpha: 1), 8: #colorLiteral(red: 0, green: 0.5008062124, blue: 1, alpha: 1), 9: #colorLiteral(red: 0.8439414501, green: 0.4790760279, blue: 0, alpha: 1)
+    5: #colorLiteral(red: 0.8466523886, green: 0.3456366658, blue: 1, alpha: 1), 6: #colorLiteral(red: 0.6638882756, green: 0.6557548046, blue: 0.2578871548, alpha: 1), 7: #colorLiteral(red: 0.2199882269, green: 0.8307816982, blue: 0.8380283117, alpha: 1), 8: #colorLiteral(red: 0, green: 0.5008062124, blue: 1, alpha: 1), 9: #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
 ]
+
+fileprivate let reuseIdentifier = "cellColor"
 
 class EditCategoryViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate {
     
@@ -31,14 +33,16 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if category == nil {
+        if let c = category {
+            nameTextField.text = c.name
+            selectedColorIndexPath = IndexPath(item: Int(c.color), section: 0)
+        } else {
             sectionCount = 2
             selectedColorIndexPath = IndexPath(item: 0, section: 0)
+            
         }
         
-        nameTextField.text = category?.name
         nameTextField.delegate = self
-        
         colorsView.dataSource = self
         colorsView.delegate = self
 
@@ -48,13 +52,11 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return sectionCount
     }
     
@@ -72,20 +74,22 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     // MARK: - Table view action
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 3 {
-            let alert = UIAlertController(title: "Confirm Delete", message: "Are you sure to delete category?", preferredStyle: .alert)
+        if indexPath.section == 2 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let alert = UIAlertController(title: "Delete category \"\(category!.name!)\"", message: "Deleting will fail if expenses with this category exist.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [unowned self] action in
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned self] action in
                 self.context.delete(self.category!)
                 do {
                     try self.context.save()
                 } catch let error as NSError {
-                    print(error)
+                    self.context.rollback()
+                    print("Error deleting category: \(error)")
                 }
             }))
             
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -96,7 +100,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = colorsView.dequeueReusableCell(withReuseIdentifier: "cellColor", for: indexPath)
+        let cell = colorsView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         cell.backgroundColor = CATEGORYCOLORS[Int(indexPath.row)]
         cell.layer.cornerRadius = 2.0
@@ -118,22 +122,28 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     // MARK: - Navigation Button action
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        
-        if let oldCategory = category {
-            oldCategory.name = nameTextField.text
-            oldCategory.color = Int16(selectedColorIndexPath!.row)
-        } else {
-            let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)!
-            let newCategory = NSManagedObject(entity: entity, insertInto: context)
-            
-            newCategory.setValue(nameTextField.text, forKey: "name")
-            newCategory.setValue(Int16(selectedColorIndexPath!.row), forKey: "color")
-        }
-        
         do {
-            try context.save()
-            dismiss(animated: true, completion: nil)
+            let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "name ==[c] %@", nameTextField.text!)
+            
+            if let c = try context.fetch(fetchRequest).first, c.objectID != category?.objectID {
+               let alert = UIAlertController(title: "Warning", message: "Category with name \"\(nameTextField.text!)\" already exists.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+            } else {
+                if category == nil {
+                    category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: context) as? Category
+                    category?.createdAt = Date()
+                }
+                
+                category?.name = nameTextField.text
+                category?.color = Int16(selectedColorIndexPath!.row)
+                
+                try context.save()
+                cancel(sender)
+            }
         } catch let error as NSError {
+            context.rollback()
             print("Error saving category: \(error)")
         }
     }
@@ -164,33 +174,8 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     }
     
     private func validate() {
-        guard let text = nameTextField.text, !text.isEmpty else {
-            saveBarButton.isEnabled = false
-            
-            return
-        }
-        
+        // let text = nameTextField.text ?? ""
         saveBarButton.isEnabled = true
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
