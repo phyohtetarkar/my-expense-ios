@@ -36,7 +36,13 @@ class CategoryTableViewCell: UITableViewCell {
             }).map({ $0.amount }).reduce(0, +)
             
             nameLabel.text = c.name
-            amountLabel.text = String(amount ?? 0)
+            
+            if let amt = amount, amt > 0 {
+                amountLabel.text = String(amt)
+            } else {
+                amountLabel.text = "000"
+            }
+            
             colorView.backgroundColor = CATEGORYCOLORS[Int(c.color)]
         }
     }

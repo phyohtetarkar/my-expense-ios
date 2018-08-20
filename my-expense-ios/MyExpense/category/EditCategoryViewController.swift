@@ -30,15 +30,10 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         if category == nil {
             sectionCount = 2
+            selectedColorIndexPath = IndexPath(item: 0, section: 0)
         }
         
         nameTextField.text = category?.name
@@ -46,7 +41,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         
         colorsView.dataSource = self
         colorsView.delegate = self
-        
+
         validate()
         
     }
@@ -64,6 +59,11 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     }
     
     // MARK: - TextField action
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         validate()
@@ -102,6 +102,10 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         cell.layer.cornerRadius = 2.0
         cell.layer.borderColor = UIColor.black.cgColor
         
+        if let index = selectedColorIndexPath, index == indexPath {
+            cell.layer.borderWidth = 2.0
+        }
+        
         return cell
     }
     
@@ -115,26 +119,39 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         
-        if category == nil {
-            category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: context) as? Category
+        if let oldCategory = category {
+            oldCategory.name = nameTextField.text
+            oldCategory.color = Int16(selectedColorIndexPath!.row)
+        } else {
+            let entity = NSEntityDescription.entity(forEntityName: "Category", in: context)!
+            let newCategory = NSManagedObject(entity: entity, insertInto: context)
+            
+            newCategory.setValue(nameTextField.text, forKey: "name")
+            newCategory.setValue(Int16(selectedColorIndexPath!.row), forKey: "color")
         }
         
-        category?.name = nameTextField.text
         do {
             try context.save()
             dismiss(animated: true, completion: nil)
         } catch let error as NSError {
-            print(error)
+            print("Error saving category: \(error)")
         }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        let isPresentingModal = presentingViewController is UITabBarController
+        
+        if isPresentingModal {
+            dismiss(animated: true, completion: nil)
+        } else if let nav = navigationController {
+            nav.popViewController(animated: true)
+        }
     }
     
     // MARK: - Private methods
     
     private func selectColor(indexPath: IndexPath) {
+        
         if let selectedIndex = selectedColorIndexPath {
             let cell = colorsView.cellForItem(at: selectedIndex)
             cell?.layer.borderWidth = 0.0
@@ -142,10 +159,12 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         
         let cell = colorsView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 2.0
+        
+        selectedColorIndexPath = indexPath
     }
     
     private func validate() {
-        guard nameTextField.text?.isEmpty ?? false else {
+        guard let text = nameTextField.text, !text.isEmpty else {
             saveBarButton.isEnabled = false
             
             return

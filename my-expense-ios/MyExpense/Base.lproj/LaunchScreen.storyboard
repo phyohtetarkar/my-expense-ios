@@ -19,25 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDU-Rc-rbu">
-                                <rect key="frame" x="16" y="94" width="343" height="33.666666666666657"/>
+                                <rect key="frame" x="16" y="394.33333333333331" width="343" height="33.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-Yk-asd">
-                                <rect key="frame" x="87.666666666666686" y="311" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="7U4-hf-AmF"/>
-                                    <constraint firstAttribute="width" constant="200" id="BQH-5K-Re3"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SDU-Rc-rbu" secondAttribute="trailing" constant="16" id="1QS-jq-AXe"/>
-                            <constraint firstItem="3QQ-Yk-asd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="B87-MN-Nte"/>
-                            <constraint firstItem="3QQ-Yk-asd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="leZ-8V-gWk"/>
-                            <constraint firstItem="SDU-Rc-rbu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="pq3-wz-H0w"/>
+                            <constraint firstItem="SDU-Rc-rbu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="rnM-al-1QL"/>
                             <constraint firstItem="SDU-Rc-rbu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sUz-nR-R1X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,7 +39,4 @@
             <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="logo" width="256" height="256"/>
-    </resources>
 </document>
