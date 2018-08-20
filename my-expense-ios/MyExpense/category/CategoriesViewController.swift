@@ -36,13 +36,10 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
         
-        let date = Date()
+        let comp = Date().toComponent()
         
-        let year = Calendar.current.component(.year, from: date)
-        let month = Calendar.current.component(.month, from: date)
-        
-        let yearPred = NSPredicate(format: "year == %i", year)
-        let monthPred = NSPredicate(format: "month == %i", month)
+        let yearPred = NSPredicate(format: "year == %i", comp.0)
+        let monthPred = NSPredicate(format: "month == %i", comp.1)
         
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPred, monthPred])
         
@@ -57,6 +54,9 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         
         do {
+            try categoryResultController.performFetch()
+            try expenseResultController.performFetch()
+            
             tableView.delegate = self
             tableView.dataSource = self
             
@@ -66,13 +66,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
             
             monthYearLabel.text = formatter.string(from: date)
             
-            if let amt = expenseResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
-                expenseAmountLabel.text = amt.asString()
-            } else {
-                expenseAmountLabel.text = "000"
-            }
-            
-            try categoryResultController.performFetch()
+            reloadTotalAmount()
         } catch let error as NSError {
             fatalError(error.localizedDescription)
         }
@@ -100,7 +94,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? CategoryTableViewCell else {
-            fatalError("Invalid cell")
+            fatalError("Error reusing cell")
         }
         
         let category = categoryResultController.object(at: indexPath)
@@ -111,6 +105,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
+        reloadTotalAmount()
     }
 
     
@@ -141,5 +136,15 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    
+    // MARK: - Private methods
+    
+    private func reloadTotalAmount() {
+        if let amt = expenseResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
+            expenseAmountLabel.text = amt.asString()
+        } else {
+            expenseAmountLabel.text = "000"
+        }
+    }
 
 }

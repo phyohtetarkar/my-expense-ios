@@ -23,5 +23,13 @@ class ExpenseTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func bind(detail: ExpenseDetail) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        
+        dateTextField.text = formatter.string(from: detail.date)
+        amountTextField.text = detail.amount.asString()
+    }
 
 }

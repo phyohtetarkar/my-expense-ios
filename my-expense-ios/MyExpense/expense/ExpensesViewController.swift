@@ -9,7 +9,12 @@
 import UIKit
 import CoreData
 
-class ExpensesViewController: UIViewController {
+fileprivate let reuseIdentifier = "cellExpense"
+
+class ExpensesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+    
+    @IBOutlet weak var totalExpenseLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     private var context: NSManagedObjectContext = AppDelegate.objectContext
     private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
@@ -19,31 +24,90 @@ class ExpensesViewController: UIViewController {
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
+        controller.delegate = self
+        
         return controller
     }()
+    
+    private var details: [ExpenseDetail] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        do {
+            try fetchedResultController.performFetch()
+            
+            tableView.dataSource = self
+            tableView.delegate = self
+            
+            details = ExpenseDataManager.toDetailList(expenses: fetchedResultController.fetchedObjects)
+            reloadTotalExpense()
+        } catch let error as NSError {
+            fatalError(error.description)
+        }
         
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return details.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? ExpenseTableViewCell else {
+            fatalError("Error reusing cell")
+        }
+        
+        cell.bind(detail: details[indexPath.row])
+        
+        return cell
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        details = ExpenseDataManager.toDetailList(expenses: controller.fetchedObjects as? [Expense])
+        tableView.reloadData()
+        reloadTotalExpense()
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case "expenseDetail":
+            guard let dest = segue.destination as? ExpenseDetailViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let cell = sender as? ExpenseTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: cell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            dest.detail = details[indexPath.row]
+            
+        default:
+            break
+        }
     }
-    */
+    
+    
+    // MARK: - Private methods
+    
+    private func reloadTotalExpense() {
+        if let amt = fetchedResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
+            totalExpenseLabel.text = amt.asString()
+        } else {
+            totalExpenseLabel.text = "000"
+        }
+    }
 
 }

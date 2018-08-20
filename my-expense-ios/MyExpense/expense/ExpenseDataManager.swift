@@ -70,7 +70,7 @@ class ExpenseDataManager {
             i += 1.0
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Categories")
         chartDataSet.colors = colors
         
         return BarChartData(dataSet: chartDataSet)

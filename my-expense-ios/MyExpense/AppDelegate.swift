@@ -110,3 +110,21 @@ extension Double {
     }
 }
 
+extension Date {
+    
+    func appDefaultFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        return formatter.string(from: self)
+    }
+    
+    func toComponent() -> (Int, Int, Int) {
+        let year = Calendar.current.component(.year, from: self)
+        let month = Calendar.current.component(.month, from: self)
+        let day = Calendar.current.component(.day, from: self)
+        
+        return (year, month, day)
+    }
+    
+}
+

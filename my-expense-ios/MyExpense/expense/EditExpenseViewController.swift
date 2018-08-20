@@ -14,36 +14,47 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextView!
+    @IBOutlet weak var expenseDateLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     private var context: NSManagedObjectContext = AppDelegate.objectContext
+    private var sectionCount = 5
     
     var expense: Expense? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.clearsSelectionOnViewWillAppear = true
+        
+        if let e = expense {
+            titleTextField.text = e.title
+            amountTextField.text = e.amount.asString()
+            expenseDateLabel.text = e.toDate()?.appDefaultFormat()
+            noteTextField.text = e.note
+            categoryLabel.text = e.category?.name
+        } else {
+            let today = Date()
+            sectionCount = 4
+            
+            expense = NSEntityDescription.insertNewObject(forEntityName: "Expense", into: context) as? Expense
+            expense?.createdAt = today
+            expense?.setDate(date: today)
+            expenseDateLabel.text = today.appDefaultFormat()
+        }
+        
+        self.transitioningDelegate = self
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sectionCount
     }
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
@@ -71,15 +82,41 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     */
     
     @IBAction func unwindToEditExpense(_ sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? CategorySelectionViewController, let category = sourceViewController.selectedCategory {
-            expense?.category = category
+        if let sourceViewController = sender.source as? CategorySelectionViewController, let indexPath = sourceViewController.tableView.indexPathForSelectedRow {
+            let selected = sourceViewController.fetchedResultController.object(at: indexPath)
+            expense?.category = selected
+            categoryLabel.text = selected.name
+        } else if let sourceViewController = sender.source as? DatePickerViewController {
+            let date = sourceViewController.datePicker.date
+            expenseDateLabel.text = date.appDefaultFormat()
+            expense?.setDate(date: date)
         }
     }
     
     @IBAction func saveExpense(_ sender: UIBarButtonItem) {
+        
+        do {
+            expense?.title = titleTextField.text
+            expense?.amount = Double(amountTextField.text ?? "0.0")!
+            expense?.note = noteTextField.text
+            
+            try context.save()
+            cancel(sender)
+        } catch let error as NSError {
+            context.rollback()
+            print("Error saving expense: \(error)")
+        }
+        
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        let isPresentingModal = presentingViewController is UITabBarController
+        
+        if isPresentingModal {
+            dismiss(animated: true, completion: nil)
+        } else if let nav = navigationController {
+            nav.popViewController(animated: true)
+        }
     }
 }
 
@@ -93,7 +130,27 @@ class CustomHeightPresentationController: UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        return CGRect(x: 0.0, y: 0.0, width: containerView?.bounds.width ?? 0, height: height)
+        guard let size = containerView?.bounds else {
+            fatalError()
+        }
+        return CGRect(x: size.height - height, y: 0.0, width: size.width, height: height)
+    }
+    
+}
+
+extension Expense {
+    
+    func toDate() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.date(from: "\(year)/\(month)/\(day)")
+    }
+    
+    func setDate(date: Date) {
+        let comp = date.toComponent()
+        self.year = Int16(comp.0)
+        self.month = Int16(comp.1)
+        self.day = Int16(comp.2)
     }
     
 }
