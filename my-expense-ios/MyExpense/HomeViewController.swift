@@ -62,9 +62,9 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         pieChartView.chartDescription = nil
         pieChartView.drawEntryLabelsEnabled = false
-        pieChartView.legend.orientation = .vertical
-        pieChartView.legend.horizontalAlignment = .right
-        pieChartView.legend.verticalAlignment = .top
+        //pieChartView.legend.orientation = .vertical
+        //pieChartView.legend.horizontalAlignment = .right
+        //pieChartView.legend.verticalAlignment = .top
         pieChartView.usePercentValuesEnabled = true
         
         barChartView.chartDescription = nil
