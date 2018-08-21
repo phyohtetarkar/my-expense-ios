@@ -34,18 +34,17 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         do {
             try fetchedResultController.performFetch()
-            
-            tableView.dataSource = self
-            tableView.delegate = self
             
             details = ExpenseDataManager.toDetailList(expenses: fetchedResultController.fetchedObjects)
             reloadTotalExpense()
         } catch let error as NSError {
             fatalError(error.description)
         }
-        
     }
 
     override func didReceiveMemoryWarning() {

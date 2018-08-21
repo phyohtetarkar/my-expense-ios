@@ -31,6 +31,7 @@
 		AAC3722121250E9E00D6E3D3 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC3722021250E9E00D6E3D3 /* BasicTableViewCell.swift */; };
 		AAC37223212513DA00D6E3D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC37222212513DA00D6E3D3 /* HomeViewController.swift */; };
 		AAF4EFE1212A95BF00989B86 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF4EFE0212A95BF00989B86 /* DatePickerViewController.swift */; };
+		AAFBC5FA212BCC99001FD255 /* BottomSheetPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFBC5F9212BCC99001FD255 /* BottomSheetPresentationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		AAC3722021250E9E00D6E3D3 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		AAC37222212513DA00D6E3D3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAF4EFE0212A95BF00989B86 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		AAFBC5F9212BCC99001FD255 /* BottomSheetPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetPresentationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				AA6669542119390300C9D491 /* UICardView.swift */,
 				AA6669592119597F00C9D491 /* UIRoundedView.swift */,
 				AA455E0B211AB7AD00E0858D /* UIRoundedButton.swift */,
+				AAFBC5F9212BCC99001FD255 /* BottomSheetPresentationManager.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				5C341EC3211EA91700A48609 /* MyExpense.xcdatamodeld in Sources */,
 				AA66695A2119597F00C9D491 /* UIRoundedView.swift in Sources */,
 				AA2E70BA2123EB2500CF53BD /* ExpenseDataManager.swift in Sources */,
+				AAFBC5FA212BCC99001FD255 /* BottomSheetPresentationManager.swift in Sources */,
 				AAC3721E21250E4A00D6E3D3 /* CategorySelectionViewController.swift in Sources */,
 				AA2E70B62123D96200CF53BD /* ExpenseDetailViewController.swift in Sources */,
 			);

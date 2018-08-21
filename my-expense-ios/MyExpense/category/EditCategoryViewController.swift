@@ -36,6 +36,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         if let c = category {
             nameTextField.text = c.name
             selectedColorIndexPath = IndexPath(item: Int(c.color), section: 0)
+            navigationController?.title = "Edit Category"
         } else {
             sectionCount = 2
             selectedColorIndexPath = IndexPath(item: 0, section: 0)
@@ -149,6 +150,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        
         let isPresentingModal = presentingViewController is UITabBarController
         
         if isPresentingModal {

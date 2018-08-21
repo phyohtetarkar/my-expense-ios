@@ -12,8 +12,12 @@ class DatePickerViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var currentDate = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.setDate(currentDate, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

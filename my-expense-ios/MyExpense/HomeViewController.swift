@@ -12,15 +12,17 @@ import CoreData
 
 class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet weak var todayExpenseLabel: UILabel!
+    @IBOutlet weak var thisMonthExpenseLabel: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var barChartView: BarChartView!
     
+    let comp = Date().toComponent()
+
     private var context: NSManagedObjectContext = AppDelegate.objectContext
-    private lazy var expenseResultController: NSFetchedResultsController<Expense> = {
+    private lazy var todayResultController: NSFetchedResultsController<Expense> = {
         
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-        
-        let comp = Date().toComponent()
         
         let yearPred = NSPredicate(format: "year == %i", comp.0)
         let monthPred = NSPredicate(format: "month == %i", comp.1)
@@ -36,37 +38,72 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         return controller
     }()
+    
+    private lazy var monthResultController: NSFetchedResultsController<Expense> = {
+        
+        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        
+        let yearPred = NSPredicate(format: "year == %i", comp.0)
+        let monthPred = NSPredicate(format: "month == %i", comp.1)
+        
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPred, monthPred])
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false)]
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate = self
+        
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pieChartView.chartDescription = nil
         pieChartView.drawEntryLabelsEnabled = false
+        pieChartView.legend.orientation = .vertical
+        pieChartView.legend.horizontalAlignment = .right
+        pieChartView.legend.verticalAlignment = .top
+        pieChartView.usePercentValuesEnabled = true
         
         barChartView.chartDescription = nil
         barChartView.xAxis.drawLabelsEnabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.xAxis.drawAxisLineEnabled = false
         barChartView.rightAxis.drawLabelsEnabled = false
-
+        barChartView.rightAxis.drawAxisLineEnabled = false
+        barChartView.leftAxis.drawAxisLineEnabled = false
+        
         do {
-            try expenseResultController.performFetch()
+            try todayResultController.performFetch()
+            try monthResultController.performFetch()
             
-            pieChartView.data = ExpenseDataManager.pieChartDataByCategory(expenses: expenseResultController.fetchedObjects)
-            barChartView.data = ExpenseDataManager.barChartDataByCategory(expenses: expenseResultController.fetchedObjects)
+            pieChartView.data = ExpenseDataManager.pieChartDataByCategory(expenses: todayResultController.fetchedObjects)
+            barChartView.data = ExpenseDataManager.barChartDataByCategory(expenses: monthResultController.fetchedObjects)
+            
+            reloadSummary()
         } catch let error as NSError {
             fatalError(error.description)
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        pieChartView.data = ExpenseDataManager.pieChartDataByCategory(expenses: controller.fetchedObjects as? [Expense])
+        pieChartView.data = ExpenseDataManager.pieChartDataByCategory(expenses: todayResultController.fetchedObjects)
+        barChartView.data = ExpenseDataManager.barChartDataByCategory(expenses: monthResultController.fetchedObjects)
+        reloadSummary()
     }
-    
 
     /*
     // MARK: - Navigation
@@ -77,5 +114,10 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func reloadSummary() {
+        todayExpenseLabel.text = todayResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +).asString() ?? "000"
+        thisMonthExpenseLabel.text = monthResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +).asString() ?? "000"
+    }
 
 }

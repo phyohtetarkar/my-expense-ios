@@ -16,18 +16,14 @@ class ExpenseDataManager {
             return []
         }
         
-        let dict = Dictionary(grouping: exps) { exp -> (Date) in
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd"
-            return formatter.date(from: "\(exp.year)/\(exp.month)/\(exp.day)")!
-        }
+        let dict = Dictionary(grouping: exps) { $0.toDate()! }
         
         return dict.map { ExpenseDetail(date: $0, amount: $1.map({ $0.amount }).reduce(0, +)) }
     }
     
     static func pieChartDataByCategory(expenses: [Expense]?) -> PieChartData? {
         
-        guard let exps = expenses else {
+        guard let exps = expenses, exps.count > 0 else {
             return nil
         }
         
@@ -46,12 +42,19 @@ class ExpenseDataManager {
         let chartDataSet = PieChartDataSet(values: dataEntries, label: "")
         chartDataSet.colors = colors
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 0
+        formatter.multiplier = 1
+        
+        chartDataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
+        
         return PieChartData(dataSet: chartDataSet)
     }
     
     static func barChartDataByCategory(expenses: [Expense]?) -> BarChartData? {
         
-        guard let exps = expenses else {
+        guard let exps = expenses, exps.count > 0 else {
             return nil
         }
         

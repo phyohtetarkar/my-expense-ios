@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EditExpenseViewController: UITableViewController, UIViewControllerTransitioningDelegate {
+class EditExpenseViewController: UITableViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
@@ -19,6 +19,10 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     
     private var context: NSManagedObjectContext = AppDelegate.objectContext
     private var sectionCount = 5
+    private var category: Category? = nil
+    private var date = Date()
+    
+    private lazy var bottomSheetTransitionDelegate = { BottomSheetPresentationManager(height: 261) }()
     
     var expense: Expense? = nil
 
@@ -33,17 +37,14 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
             expenseDateLabel.text = e.toDate()?.appDefaultFormat()
             noteTextField.text = e.note
             categoryLabel.text = e.category?.name
-        } else {
-            let today = Date()
-            sectionCount = 4
             
-            expense = NSEntityDescription.insertNewObject(forEntityName: "Expense", into: context) as? Expense
-            expense?.createdAt = today
-            expense?.setDate(date: today)
-            expenseDateLabel.text = today.appDefaultFormat()
+            date = e.toDate()!
+            category = e.category
+            navigationController?.title = "Edit Expense"
+        } else {
+            sectionCount = 4
+            expenseDateLabel.text = date.appDefaultFormat()
         }
-        
-        self.transitioningDelegate = self
 
     }
 
@@ -56,49 +57,66 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionCount
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
     
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return CustomHeightPresentationController(presentedViewController: presented, presenting: presenting, height: 261)
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case "dateSheet":
+            guard let nav = segue.destination as? UINavigationController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let dest = nav.topViewController as? DatePickerViewController else {
+                fatalError("Unexpected destination: \(nav)")
+            }
+            
+            nav.modalPresentationStyle = .custom
+            nav.transitioningDelegate = bottomSheetTransitionDelegate
+            
+            dest.currentDate = date
+
+        default:
+            break
+        }
     }
-    */
+    
     
     @IBAction func unwindToEditExpense(_ sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? CategorySelectionViewController, let indexPath = sourceViewController.tableView.indexPathForSelectedRow {
             let selected = sourceViewController.fetchedResultController.object(at: indexPath)
-            expense?.category = selected
+            self.category = selected
             categoryLabel.text = selected.name
         } else if let sourceViewController = sender.source as? DatePickerViewController {
             let date = sourceViewController.datePicker.date
             expenseDateLabel.text = date.appDefaultFormat()
-            expense?.setDate(date: date)
+            self.date = date
         }
     }
     
     @IBAction func saveExpense(_ sender: UIBarButtonItem) {
         
+        if expense == nil {
+            expense = NSEntityDescription.insertNewObject(forEntityName: "Expense", into: context) as? Expense
+            expense?.createdAt = Date()
+        }
+        
         do {
             expense?.title = titleTextField.text
             expense?.amount = Double(amountTextField.text ?? "0.0")!
             expense?.note = noteTextField.text
+            expense?.category = category
+            expense?.setDate(date: date)
             
             try context.save()
             cancel(sender)
@@ -118,24 +136,6 @@ class EditExpenseViewController: UITableViewController, UIViewControllerTransiti
             nav.popViewController(animated: true)
         }
     }
-}
-
-class CustomHeightPresentationController: UIPresentationController {
-    
-    private var height: CGFloat
-    
-    init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, height: CGFloat) {
-        self.height = height
-        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
-    }
-    
-    override var frameOfPresentedViewInContainerView: CGRect {
-        guard let size = containerView?.bounds else {
-            fatalError()
-        }
-        return CGRect(x: size.height - height, y: 0.0, width: size.width, height: height)
-    }
-    
 }
 
 extension Expense {
