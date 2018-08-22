@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class EditExpenseViewController: UITableViewController {
+class EditExpenseViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextView!
     @IBOutlet weak var expenseDateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     private var context: NSManagedObjectContext = AppDelegate.objectContext
     private var sectionCount = 5
@@ -40,16 +41,31 @@ class EditExpenseViewController: UITableViewController {
             
             date = e.toDate()!
             category = e.category
-            navigationController?.title = "Edit Expense"
         } else {
             sectionCount = 4
             expenseDateLabel.text = date.appDefaultFormat()
         }
+        
+        titleTextField.delegate = self
+        amountTextField.delegate = self
+        
+        validate()
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - TextField action
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        validate()
     }
 
     // MARK: - Table view data source
@@ -97,6 +113,7 @@ class EditExpenseViewController: UITableViewController {
             let selected = sourceViewController.fetchedResultController.object(at: indexPath)
             self.category = selected
             categoryLabel.text = selected.name
+            validate()
         } else if let sourceViewController = sender.source as? DatePickerViewController {
             let date = sourceViewController.datePicker.date
             expenseDateLabel.text = date.appDefaultFormat()
@@ -135,6 +152,25 @@ class EditExpenseViewController: UITableViewController {
         } else if let nav = navigationController {
             nav.popViewController(animated: true)
         }
+    }
+    
+    private func validate() {
+        guard let title = titleTextField.text, !title.isEmpty else {
+            saveButton.isEnabled = false
+            return
+        }
+        
+        guard let amt = amountTextField.text, !amt.isEmpty else {
+            saveButton.isEnabled = false
+            return
+        }
+        
+        guard let _ = category else {
+            saveButton.isEnabled = false
+            return
+        }
+        
+        saveButton.isEnabled = true
     }
 }
 

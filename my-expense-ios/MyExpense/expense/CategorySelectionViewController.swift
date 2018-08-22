@@ -49,12 +49,10 @@ class CategorySelectionViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? BasicTableViewCell else {
-            fatalError("Error reusing cell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
         let category = fetchedResultController.object(at: indexPath)
-        cell.nameTextField.text = category.name
+        cell.textLabel?.text = category.name
 
         return cell
     }

@@ -129,6 +129,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             let category = categoryResultController.object(at: indexPath)
+            dest.title = "Edit Category"
             dest.category = category
             
         default:

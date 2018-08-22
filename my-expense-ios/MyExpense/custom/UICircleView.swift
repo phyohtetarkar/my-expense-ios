@@ -8,9 +8,7 @@
 
 import UIKit
 
-class UIRoundedButton: UIButton {
-    
-    @IBInspectable var cornerRadius: CGFloat = 2
+class UICircleView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -23,7 +21,7 @@ class UIRoundedButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layer.cornerRadius = cornerRadius
+        self.layer.cornerRadius = max(bounds.width, bounds.height) / 2
         self.layer.masksToBounds = true
         
     }

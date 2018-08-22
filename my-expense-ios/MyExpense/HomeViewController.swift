@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPred, monthPred, dayPred])
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -82,17 +82,14 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
             pieChartView.data = ExpenseDataManager.pieChartDataByCategory(expenses: todayResultController.fetchedObjects)
             barChartView.data = ExpenseDataManager.barChartDataByCategory(expenses: monthResultController.fetchedObjects)
             
+            pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+            
             reloadSummary()
         } catch let error as NSError {
             fatalError(error.description)
         }
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
     override func didReceiveMemoryWarning() {

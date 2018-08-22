@@ -9,9 +9,6 @@
 import UIKit
 
 class ExpenseTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var dateTextField: UILabel!
-    @IBOutlet weak var amountTextField: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +25,8 @@ class ExpenseTableViewCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
         
-        dateTextField.text = formatter.string(from: detail.date)
-        amountTextField.text = detail.amount.asString()
+        textLabel?.text = formatter.string(from: detail.date)
+        detailTextLabel?.text = detail.amount.asString()
     }
 
 }

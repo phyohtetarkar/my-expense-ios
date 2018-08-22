@@ -1,16 +1,14 @@
 //
-//  BasicTableViewCell.swift
+//  ExpenseChartTableViewCell.swift
 //  MyExpense
 //
-//  Created by OP-Macmini3 on 8/16/18.
+//  Created by Phyo Htet Arkar on 8/22/18.
 //  Copyright © 2018 Phyo Htet Arkar. All rights reserved.
 //
 
 import UIKit
 
-class BasicTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var nameTextField: UILabel!    
+class ExpenseChartTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +19,10 @@ class BasicTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func bind(expenses: [Expense]?) {
+        
     }
 
 }
