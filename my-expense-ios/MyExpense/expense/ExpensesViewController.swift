@@ -20,7 +20,11 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     private lazy var fetchedResultController: NSFetchedResultsController<Expense> = {
         
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "year", ascending: false),
+            NSSortDescriptor(key: "month", ascending: false),
+            NSSortDescriptor(key: "day", ascending: false)
+        ]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
