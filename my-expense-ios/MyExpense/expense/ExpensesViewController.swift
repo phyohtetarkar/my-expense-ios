@@ -41,7 +41,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
             try fetchedResultController.performFetch()
             
             details = ExpenseDataManager.toDetailList(expenses: fetchedResultController.fetchedObjects)
-            reloadTotalExpense()
+            calculateTotalExpense()
         } catch let error as NSError {
             fatalError(error.description)
         }
@@ -76,7 +76,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         details = ExpenseDataManager.toDetailList(expenses: controller.fetchedObjects as? [Expense])
         tableView.reloadData()
-        reloadTotalExpense()
+        calculateTotalExpense()
     }
     
     // MARK: - Navigation
@@ -109,7 +109,7 @@ class ExpensesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Private methods
     
-    private func reloadTotalExpense() {
+    private func calculateTotalExpense() {
         if let amt = fetchedResultController.fetchedObjects?.map({ $0.amount }).reduce(0, +), amt > 0 {
             totalExpenseLabel.text = amt.asString()
         } else {

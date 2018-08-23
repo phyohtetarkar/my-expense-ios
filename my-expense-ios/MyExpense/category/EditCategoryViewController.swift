@@ -22,7 +22,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
 
     private var sectionCount = 3
     
-    private var selectedColorIndexPath: IndexPath? = nil
+    private var selectedColorIndexPath = IndexPath(item: 0, section: 0)
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorsView: UICollectionView!
@@ -35,10 +35,9 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
         
         if let c = category {
             nameTextField.text = c.name
-            selectedColorIndexPath = IndexPath(item: Int(c.color), section: 0)
+            selectedColorIndexPath = IndexPath(item: c.color.toInt(), section: 0)
         } else {
             sectionCount = 2
-            selectedColorIndexPath = IndexPath(item: 0, section: 0)
             
         }
         
@@ -76,19 +75,26 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             tableView.deselectRow(at: indexPath, animated: true)
-            let alert = UIAlertController(title: "Delete category \"\(category!.name!)\"", message: "Deleting will fail if expenses with this category exist.", preferredStyle: .alert)
+            guard let c = category, let exps = c.expenses, exps.count > 0 else {
+                let alert = UIAlertController(title: "Are you sure to delete category \"\(category!.name!)\"?", message: nil, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned self] action in
+                    self.context.delete(self.category!)
+                    do {
+                        try self.context.save()
+                        self.navigationController?.popViewController(animated: true)
+                    } catch let error as NSError {
+                        self.context.rollback()
+                        print("Error deleting category: \(error)")
+                    }
+                }))
+                
+                present(alert, animated: true, completion: nil)
+                return
+            }
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned self] action in
-                self.context.delete(self.category!)
-                do {
-                    try self.context.save()
-                } catch let error as NSError {
-                    self.context.rollback()
-                    print("Error deleting category: \(error)")
-                }
-            }))
-            
+            let alert = AlertManager.info(title: "Cannot delete \"\(c.name!)\"", message: "Delete expenses of this category first.")
             present(alert, animated: true, completion: nil)
         }
     }
@@ -102,11 +108,11 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = colorsView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
-        cell.backgroundColor = CATEGORYCOLORS[Int(indexPath.row)]
+        cell.backgroundColor = CATEGORYCOLORS[indexPath.row]
         cell.layer.cornerRadius = 2.0
         cell.layer.borderColor = UIColor.black.cgColor
         
-        if let index = selectedColorIndexPath, index == indexPath {
+        if selectedColorIndexPath == indexPath {
             cell.layer.borderWidth = 2.0
         }
         
@@ -127,8 +133,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
             fetchRequest.predicate = NSPredicate(format: "name ==[c] %@", nameTextField.text!)
             
             if let c = try context.fetch(fetchRequest).first, c.objectID != category?.objectID {
-               let alert = UIAlertController(title: "Warning", message: "Category with name \"\(nameTextField.text!)\" already exists.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                let alert = AlertManager.info(title: "Warning", message: "Category with name \"\(nameTextField.text!)\" already exists.")
                 present(alert, animated: true, completion: nil)
             } else {
                 if category == nil {
@@ -137,7 +142,7 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
                 }
                 
                 category?.name = nameTextField.text
-                category?.color = Int16(selectedColorIndexPath!.row)
+                category?.color = selectedColorIndexPath.row.toInt16()
                 
                 try context.save()
                 cancel(sender)
@@ -163,13 +168,11 @@ class EditCategoryViewController: UITableViewController, UICollectionViewDataSou
     
     private func selectColor(indexPath: IndexPath) {
         
-        if let selectedIndex = selectedColorIndexPath {
-            let cell = colorsView.cellForItem(at: selectedIndex)
-            cell?.layer.borderWidth = 0.0
-        }
+        let old = colorsView.cellForItem(at: selectedColorIndexPath)
+        old?.layer.borderWidth = 0.0
         
-        let cell = colorsView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 2.0
+        let new = colorsView.cellForItem(at: indexPath)
+        new?.layer.borderWidth = 2.0
         
         selectedColorIndexPath = indexPath
     }

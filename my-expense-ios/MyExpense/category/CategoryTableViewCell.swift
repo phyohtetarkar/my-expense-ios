@@ -38,7 +38,7 @@ class CategoryTableViewCell: UITableViewCell {
                 amountLabel.text = amt.asString()
             }
             
-            colorView.backgroundColor = CATEGORYCOLORS[Int(c.color)]
+            colorView.backgroundColor = CATEGORYCOLORS[c.color.toInt()]
         }
     }
 

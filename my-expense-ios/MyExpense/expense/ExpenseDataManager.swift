@@ -36,7 +36,7 @@ class ExpenseDataManager {
             let total = v.map({ $0.amount }).reduce(0, +)
             let chartData = PieChartDataEntry(value: total, label: k)
             dataEntries.append(chartData)
-            colors.append(CATEGORYCOLORS[Int(v.first!.category!.color)]!)
+            colors.append(CATEGORYCOLORS[v.first!.category!.color.toInt()]!)
         }
         
         let chartDataSet = PieChartDataSet(values: dataEntries, label: "")
@@ -68,7 +68,7 @@ class ExpenseDataManager {
             let total = v.map({ $0.amount }).reduce(0, +)
             let chartData = BarChartDataEntry(x: i, y: total)
             dataEntries.append(chartData)
-            colors.append(CATEGORYCOLORS[Int(v.first!.category!.color)]!)
+            colors.append(CATEGORYCOLORS[v.first!.category!.color.toInt()]!)
             
             i += 1.0
         }

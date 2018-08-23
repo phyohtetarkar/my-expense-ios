@@ -77,6 +77,23 @@ class EditExpenseViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             tableView.deselectRow(at: indexPath, animated: true)
+        } else if indexPath.section == 4 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let alert = UIAlertController(title: "Are you sure to delete expense \"\(expense!.title!)\"?", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [unowned self] action in
+                self.context.delete(self.expense!)
+                do {
+                    try self.context.save()
+                    self.navigationController?.popViewController(animated: true)
+                } catch let error as NSError {
+                    self.context.rollback()
+                    print("Error deleting expense: \(error)")
+                }
+            }))
+            
+            present(alert, animated: true, completion: nil)
         }
     }
 
