@@ -19,6 +19,7 @@ class ExpenseDataManager {
         let dict = Dictionary(grouping: exps) { $0.toDate()! }
         
         return dict.map { ExpenseDetail(date: $0, amount: $1.map({ $0.amount }).reduce(0, +)) }
+            .sorted(by: {$0.date > $1.date})
     }
     
     static func pieChartDataByCategory(expenses: [Expense]?) -> PieChartData? {
